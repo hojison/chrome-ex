@@ -134,7 +134,7 @@ if($(".TweetBoxExtras").length > 0){
       .appendTo(cardElem)
       .off("click").on("click", function(){
         if(!(getCardElem(idx).hasClass("lock")) && !(getCardElem(idx).hasClass("off"))){//ロック中 || ペア発見済みは無効に
-          console.log("index = "+idx);
+//          console.log("index = "+idx);
           index = idx;  //選択したカードの順番をindexに保存
           cardlock();  //選択したカードのクリックを無効にする関数
           cardClose(index,omoteOpen);  //カードを閉じ、表面を開く関数
@@ -239,16 +239,14 @@ if($(".TweetBoxExtras").length > 0){
   アニメーション関数
 ***********************************/
   function getCardElem(i){//
-    console.log("getCardElem("+i+")");
+//    console.log("getCardElem("+i+")");
     return $(".match-up-game").find(".card-"+i).find("button");
   }
   //カードを閉じる
   function cardClose(i,callback){
     let elem = getCardElem(i);
     elem.stop().animate({ "left": "26"}, speed);
-//    elem.children("span").animate({ left: "26"}, speed);
-//    elem.find("Icon--grid").removeClass().addClass("Icon").stop().animate({ width: "0"}, speed,
-    console.log("elem.find('.Icon--grid:'):"+elem.find(".Icon--grid").prop('outerHTML'));
+//    console.log("elem.find('.Icon--grid:'):"+elem.find(".Icon--grid").prop('outerHTML'));
     elem.find(".Icon").stop().animate({ width: "0"}, speed,
     function(){
       callback(i);
@@ -256,7 +254,7 @@ if($(".TweetBoxExtras").length > 0){
   }
   //表面を開く
   function omoteOpen(){
-    console.log("omoteOpen: index = "+index);
+//    console.log("omoteOpen: index = "+index);
     let elem = getCardElem(index);
     elem.find(".Icon").removeClass("Icon--grid").addClass("Icon--"+cardNameList[cards[index]]);
     elem.find(".Icon")
@@ -282,7 +280,7 @@ if($(".TweetBoxExtras").length > 0){
    
   //クリックできないようにカードをロック
   function cardlock(){
-    console.log("cardlock:index = ("+index+")");
+//    console.log("cardlock:index = ("+index+")");
     getCardElem(index).addClass("lock");
   }
   //全てのカードをロック
@@ -298,7 +296,7 @@ if($(".TweetBoxExtras").length > 0){
   }
   //選んだ2枚のカードの正否
   function comparison() {
-    console.log("card1:"+card1+", card2: "+card2);
+//    console.log("card1:"+card1+", card2: "+card2);
     if(card1==card2){  //2枚が同じカードであれば
       getCardElem(index).addClass("off");  //2枚目のカードのクリック判定を無効に
       getCardElem(index1).addClass("off");  //1枚目のカードのクリック判定を無効に
