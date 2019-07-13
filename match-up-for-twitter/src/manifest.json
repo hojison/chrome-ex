@@ -1,8 +1,8 @@
 {
-  "name": "Sample",
+  "name": "match-up-for-twitter",
   "version": "1.0.0",
   "manifest_version": 2,
-  "description": "Sample Chrome Extension",
+  "description": "Twitterで神経衰弱",
   "content_scripts": [{
     "matches": ["https://twitter.com/?lang=ja"],
     "js": [
